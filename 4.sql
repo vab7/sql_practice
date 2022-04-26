@@ -39,7 +39,7 @@ VALUES (2001, "Hoffman", "London", 100, 1001),
     (2004, "Grass", "Berlin", 300, 1002),
     (2006, "Clemens", "London", 100, 1001),
     (2008, "Cisneros", "San Jose", 300, 1007),
-    (2007, "Pereira", "Rome", 100, 33);
+    (2007, "Pereira", "Rome", 100, 1004);
 INSERT INTO Orders (onum, amt, odate, cnum, snum)
 VALUES (3001, 18.69, "2021/03/10", 2008, 1007),
     (3003, 767.19, "2021/03/10", 2001, 1001),
