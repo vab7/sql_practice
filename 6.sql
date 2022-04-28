@@ -1,4 +1,4 @@
-use Belousov;
+USE Belousov;
 /* city */
 SELECT DISTINCT city1
 FROM Customers1;

@@ -1,4 +1,4 @@
-use Belousov;
+USE Belousov;
 /* rename tables */
 RENAME TABLE SalesPeople TO SalesPeople1;
 RENAME TABLE Customers TO Customers1;

@@ -1,4 +1,4 @@
-use belousov;
+USE Belousov;
 /* 1 */
 SELECT DISTINCT COUNT(sname1) AS "Кол-во продавцов"
 FROM SalesPeople1;

@@ -1,4 +1,4 @@
-use belousov;
+USE Belousov;
 /* 1 */
 SELECT SUM(amt1) AS "Сумма приобритений 3 Октября"
 FROM Orders1
@@ -37,6 +37,6 @@ GROUP BY city1;
 SELECT odate1 AS "Дата",
     COUNT(DISTINCT snum) AS "Рег. заказы"
 FROM Orders1
-    JOIN SalesPeople1 ON Orders1.snum = SalesPeople1.snum1
+    JOIN SalesPeople1 ON snum = snum1
 GROUP BY odate1;
 /* 9 */

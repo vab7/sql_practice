@@ -1,4 +1,4 @@
-use Belousov;
+USE Belousov;
 /* in */
 SELECT *
 FROM Customers1
