@@ -14,7 +14,7 @@ WHERE snum1 BETWEEN 1001 AND 1005;
 /* between */
 SELECT *
 FROM SalesPeople1
-WHERE comm BETWEEN.10 AND.13;
+WHERE comm BETWEEN 0.10 AND 0.13;
 /* like */
 SELECT *
 FROM Customers1
@@ -26,7 +26,7 @@ WHERE city1 LIKE "A%L";
 /* date */
 SELECT *
 FROM Orders1
-WHERE odate1 BETWEEN "2021.03.10" AND "2021.05.10";
+WHERE odate1 BETWEEN "2021.10.03" AND "2021.10.05";
 /* c */
 SELECT *
 FROM Customers1
