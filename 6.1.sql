@@ -1,41 +1,41 @@
 USE Belousov;
-/* in */
+-- 1
 SELECT *
-FROM Customers1
+FROM Customers
 WHERE snum IN (1001, 1002, 1007);
-/* in */
+-- 2
 SELECT *
-FROM Orders1
+FROM Orders
 WHERE cnum IN (2001, 2004, 2008);
-/* between */
+-- 3
 SELECT *
-FROM SalesPeople1
-WHERE snum1 BETWEEN 1001 AND 1005;
-/* between */
+FROM SalesPeople
+WHERE snum BETWEEN 1001 AND 1005;
+-- 4
 SELECT *
-FROM SalesPeople1
+FROM SalesPeople
 WHERE comm BETWEEN 0.10 AND 0.13;
-/* like */
+-- 5
 SELECT *
-FROM Customers1
+FROM Customers
 WHERE cname LIKE "A%G";
-/* like */
+-- 6
 SELECT *
-FROM Customers1
-WHERE city1 LIKE "A%L";
-/* date */
+FROM Customers
+WHERE city LIKE "A%L";
+-- 7
 SELECT *
-FROM Orders1
-WHERE odate1 BETWEEN "2021.10.03" AND "2021.10.05";
-/* c */
+FROM Orders
+WHERE odate BETWEEN "2021.10.03" AND "2021.10.05";
+-- 8
 SELECT *
-FROM Customers1
+FROM Customers
 WHERE cname LIKE "C%";
-/* g */
+-- 9
 SELECT *
-FROM Customers1
+FROM Customers
 WHERE cname LIKE "G%";
-/* g and s */
+-- 10
 SELECT *
-FROM Customers1
+FROM Customers
 WHERE cname LIKE "C%s";

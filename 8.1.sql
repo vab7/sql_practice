@@ -1,42 +1,42 @@
 USE Belousov;
-/* 1 */
+-- 1
 SELECT cname AS "Заказчик",
-    rating1 AS "Рейтинг"
-FROM Customers1
-ORDER BY rating1 DESC;
-/* 2 */
-SELECT sname1 AS "Продавец",
+    rating AS "Рейтинг"
+FROM Customers
+ORDER BY rating DESC;
+-- 2
+SELECT sname AS "Продавец",
     cname AS "Заказчик"
-FROM Customers1
-    JOIN SalesPeople1 ON snum = snum1
-ORDER BY sname1 DESC;
-/* 3 */
-SELECT snum1 AS "Номер",
-    sname1 AS "Имя",
+FROM Customers
+    JOIN SalesPeople ON SalesPeople.snum = Customers.snum
+ORDER BY sname DESC;
+-- 3
+SELECT snum AS "Номер",
+    sname AS "Имя",
     city AS "Город"
-FROM SalesPeople1
-ORDER BY sname1 DESC;
-/* 4 */
+FROM SalesPeople
+ORDER BY sname DESC;
+-- 4
 SELECT cname AS "Имя",
-    city1 AS "Город",
-    rating1 AS "Рейтинг"
-FROM Customers1
-ORDER BY rating1,
+    city AS "Город",
+    rating AS "Рейтинг"
+FROM Customers
+ORDER BY rating,
     cname;
-/* 5 */
-SELECT sname1 AS "Имя",
+-- 5
+SELECT sname AS "Имя",
     city AS "Город"
-FROM SalesPeople1
+FROM SalesPeople
 GROUP BY city
-ORDER BY sname1;
-/* 6 */
+ORDER BY sname;
+-- 6
 SELECT cname AS "Имя",
-    city1 AS "Город",
-    rating1 AS "Рейтинг"
-FROM Customers1
+    city AS "Город",
+    rating AS "Рейтинг"
+FROM Customers
 ORDER BY 2;
-/* 7 */
-SELECT city1 AS "Город",
-    rating1 AS "Рейтинг"
-FROM Customers1
-ORDER BY rating1;
+-- 7
+SELECT city AS "Город",
+    rating AS "Рейтинг"
+FROM Customers
+ORDER BY rating;

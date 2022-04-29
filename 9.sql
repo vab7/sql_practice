@@ -1,86 +1,86 @@
 USE Belousov;
 -- 1
-SELECT sname1 AS "Продавец",
-    Customers1.cname AS "Покупатель",
-    ROUND(Orders1.amt1 + Orders1.dostavka, 2) AS "Сумма покупки"
-FROM SalesPeople1,
-    Customers1,
-    Orders1
+SELECT sname AS "Продавец",
+    Customers.cname AS "Покупатель",
+    ROUND(Orders.amt + Orders.dostavka, 2) AS "Сумма покупки"
+FROM SalesPeople,
+    Customers,
+    Orders
 WHERE (
-        (Orders1.amt1 + Orders1.dostavka) BETWEEN 700 AND 2000
+        (Orders.amt + Orders.dostavka) BETWEEN 700 AND 2000
     )
-    AND SalesPeople1.snum1 = Orders1.snum
-    AND Customers1.snum = Orders1.snum;
+    AND SalesPeople.snum = Orders.snum
+    AND Customers.snum = Orders.snum;
 -- 2
-SELECT sname1 AS "Продавец",
-    ROUND(Orders1.amt1 + Orders1.dostavka, 2) AS "Сумма покупки"
-FROM SalesPeople1,
-    Orders1
-WHERE snum1 = Orders1.snum;
+SELECT sname AS "Продавец",
+    ROUND(Orders.amt + Orders.dostavka, 2) AS "Сумма покупки"
+FROM SalesPeople,
+    Orders
+WHERE SalesPeople.snum = Orders.snum;
 -- 3
-SELECT sname1 AS "Продавец",
+SELECT sname AS "Продавец",
     cname AS "Покупатель"
-FROM SalesPeople1,
-    Customers1
-WHERE snum1 = Customers1.snum;
+FROM SalesPeople,
+    Customers
+WHERE SalesPeople.snum = Customers.snum;
 -- 4
-SELECT sname1 AS "Продавец",
-    Customers1.cname AS "Покупатель",
-    city AS "Город"
-FROM SalesPeople1,
-    Customers1
-WHERE city = Customers1.city1;
+SELECT sname AS "Продавец",
+    Customers.cname AS "Покупатель",
+    SalesPeople.city AS "Город"
+FROM SalesPeople,
+    Customers
+WHERE SalesPeople.city = Customers.city;
 -- 5
-SELECT odate1 AS "Дата",
-    SalesPeople1.comm AS "Комиссия"
-FROM Orders1,
-    SalesPeople1
-WHERE SalesPeople1.comm < 0.12
-    AND snum = SalesPeople1.snum1
-ORDER BY odate1;
+SELECT odate AS "Дата",
+    SalesPeople.comm AS "Комиссия"
+FROM Orders,
+    SalesPeople
+WHERE SalesPeople.comm < 0.12
+    AND Orders.snum = SalesPeople.snum
+ORDER BY odate;
 -- 6
-SELECT ROUND(amt1 + dostavka, 2) AS "Сумма заказа",
-    Customers1.rating1 AS "Рейтинг"
-FROM Orders1,
-    Customers1
-WHERE Customers1.rating1 > 100
-    AND Orders1.cnum = Customers1.cnum;
+SELECT ROUND(amt + dostavka, 2) AS "Сумма заказа",
+    Customers.rating AS "Рейтинг"
+FROM Orders,
+    Customers
+WHERE Customers.rating > 100
+    AND Orders.cnum = Customers.cnum;
 -- 7
 SELECT cname AS "Заказчик",
-    Orders1.odate1 AS "Дата"
-FROM Customers1,
-    Orders1
-WHERE odate1 = "2021.10.03"
-    AND Orders1.cnum = Customers1.cnum;
+    Orders.odate AS "Дата"
+FROM Customers,
+    Orders
+WHERE odate = "2021.10.03"
+    AND Orders.cnum = Customers.cnum;
 -- 8
 SELECT cname AS "Покупатель",
-    ROUND(Orders1.amt1 + Orders1.dostavka, 2) AS "Сумма заказа",
-    SalesPeople1.comm AS "Комиссионные",
+    ROUND(Orders.amt + Orders.dostavka, 2) AS "Сумма заказа",
+    SalesPeople.comm AS "Комиссионные",
     "2021.10.04" AS "Дата"
-FROM Customers1,
-    SalesPeople1,
-    Orders1
-WHERE Orders1.odate1 = "2021.10.04"
-    AND Customers1.cnum = Orders1.cnum
-    AND Orders1.snum = SalesPeople1.snum1;
+FROM Customers,
+    SalesPeople,
+    Orders
+WHERE Orders.odate = "2021.10.04"
+    AND Customers.cnum = Orders.cnum
+    AND Orders.snum = SalesPeople.snum;
 -- 9
 SELECT cname AS "Заказчик",
-    rating1 AS "Рейтинг",
-    ROUND(Orders1.amt1 + Orders1.dostavka, 2) AS "Сумма заказа",
-    odate1 AS "Дата"
-FROM Customers1,
-    Orders1
-WHERE ROUND(Orders1.amt1 + Orders1.dostavka, 2) > 3000
-    AND odate1 = "2021.10.03"
-    AND Customers1.cnum = Orders1.cnum;
+    rating AS "Рейтинг",
+    ROUND(Orders.amt + Orders.dostavka, 2) AS "Сумма заказа",
+    odate AS "Дата"
+FROM Customers,
+    Orders
+WHERE ROUND(Orders.amt + Orders.dostavka, 2) > 3000
+    AND odate = "2021.10.03"
+    AND Customers.cnum = Orders.cnum;
 -- 10
 SELECT onum AS "Номер заказа",
-    Customers1.cname AS "Имя заказчика",
-    SalesPeople1.sname1 AS "Имя продавца",
-    Customers1.city1 AS "Город"
-FROM Orders1,
-    Customers1,
-    SalesPeople1
-WHERE Customers1.city1 = "San Jose"
-    AND Orders1.cnum = Customers1.cnum
-    AND Orders1.snum = SalesPeople1.snum1;
+    Customers.cname AS "Имя заказчика",
+    SalesPeople.sname AS "Имя продавца",
+    Customers.city AS "Город"
+FROM Orders,
+    Customers,
+    SalesPeople
+WHERE Customers.city = "San Jose"
+    AND Orders.cnum = Customers.cnum
+    AND Orders.snum = SalesPeople.snum;
