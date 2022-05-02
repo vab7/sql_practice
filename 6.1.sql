@@ -18,11 +18,11 @@ WHERE comm BETWEEN 0.10 AND 0.13;
 -- 5
 SELECT *
 FROM Customers
-WHERE cname LIKE "A%G";
+WHERE cname BETWEEN "A%" AND "G%";
 -- 6
 SELECT *
 FROM Customers
-WHERE city LIKE "A%L";
+WHERE city BETWEEN "A%" AND "L%";
 -- 7
 SELECT *
 FROM Orders
